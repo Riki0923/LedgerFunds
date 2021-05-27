@@ -57,8 +57,11 @@ function createTransaction(address payable _receiver, uint _amount) public payab
 function getTransaction(uint256 _id) external view returns(address, address, uint256, uint256 ){
    return (transactionNumber[_id]._receiver, transactionNumber[_id]._sender, transactionNumber[_id]._amountSent, transactionNumber[_id]._balanceRemained);
 }
-function getBalance() public view returns(uint256){
+function getContractBalance() public view returns(uint256){
     return address(this).balance;
 }
 
+function getBalance() public view returns(uint256){
+    return balances[msg.sender];
+}
 }
