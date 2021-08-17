@@ -44,8 +44,8 @@ Transactions memory newTransaction = Transactions(transactionNumber.length, _rec
 transactionNumber.push(newTransaction);
 }
 
-function getTransaction(uint256 _id) external view returns(address, address, uint256, uint256 )
-{ return (transactionNumber[_id]._receiver,
+function getTransaction(uint256 _id) external view returns(address, address, uint256, uint256 ){
+return (transactionNumber[_id]._receiver,
 transactionNumber[_id]._sender, 
 transactionNumber[_id]._amountSent, 
 transactionNumber[_id]._balanceRemained); 
