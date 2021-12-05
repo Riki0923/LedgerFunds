@@ -46,11 +46,14 @@ function createTransaction(address payable _receiver, uint _amount) public payab
     balances[_receiver] += _amount;
     uint _balanceRemained = balances[msg.sender] -= _amount;
 
+
     Transactions memory newTransaction = Transactions(transactionNumber.length, _receiver, msg.sender, _amount, _balanceRemained); 
+    
     transactionNumber.push(newTransaction); 
 }
 
 function getTransaction(uint256 _id) external view returns(address, address, uint256, uint256 ){
+
      return (transactionNumber[_id]._receiver, transactionNumber[_id]._sender, transactionNumber[_id]._amountSent, transactionNumber[_id]._balanceRemained);
 
 }
