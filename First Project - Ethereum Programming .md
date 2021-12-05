@@ -9,9 +9,11 @@ contract LedgerFunds {
 address[] private participants;
 
 constructor(address[] memory _participants){
+
      participants = _participants; }
 
 modifier onlyOwner (){
+
      bool participant = false; 
      for(uint i =0; i<participants.length; i++){ 
          if (participants[i] == msg.sender){
@@ -36,6 +38,7 @@ Transactions[] transactionNumber;
 mapping(address => uint256) balances;
 
 function addBalance() onlyOwner public payable {
+
      require(msg.value <= 10 ether, "The amount you want to add is too big"); 
      balances[msg.sender] += msg.value; 
      }
