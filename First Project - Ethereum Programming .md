@@ -41,6 +41,7 @@ function addBalance() onlyOwner public payable {
      }
 
 function createTransaction(address payable _receiver, uint _amount) public payable onlyOwner {
+
     require(balances[msg.sender] >= _amount, "insufficient balance"); 
     balances[msg.sender] -= _amount;
     balances[_receiver] += _amount;
@@ -48,7 +49,6 @@ function createTransaction(address payable _receiver, uint _amount) public payab
 
 
     Transactions memory newTransaction = Transactions(transactionNumber.length, _receiver, msg.sender, _amount, _balanceRemained); 
-    
     transactionNumber.push(newTransaction); 
 }
 
@@ -59,11 +59,13 @@ function getTransaction(uint256 _id) external view returns(address, address, uin
 }
 
 function getContractBalance() public view returns(uint256){ 
+
     return address(this).balance;
 
 }
 
 function getBalance() public view returns(uint256){
+
      return balances[msg.sender];
 
 }
